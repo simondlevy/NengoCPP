@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 '''
-Simple PD control example using a mouse cursor in OpenCV
+Simple Nengo PD control example using a mouse cursor 
 
 Copyright 2018 Melanie Jouaiti and Simon D. Levy
 

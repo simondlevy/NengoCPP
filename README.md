@@ -38,3 +38,11 @@ set up the constructor method with a boolean flag
 (default = False), which allows us to continue to visualize the model by running a simple 
 [script](https://github.com/simondlevy/NengoCPP/blob/master/gui_demo.py) from the command-line:
 <tt>nengo gui\_demo.py</tt>
+
+3. Write a [Python program](https://github.com/simondlevy/NengoCPP/blob/master/mousetracker.py) 
+to test your Python class.  
+
+4. Write a C++ class (
+[API](https://github.com/simondlevy/NengoCPP/blob/master/nengo_pidcontrol.h)
+and [implementation](https://github.com/simondlevy/NengoCPP/blob/master/nengo_pidcontrol.cpp)
+), each of whose methods corresponds to a method in your Python class.
