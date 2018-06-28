@@ -2,7 +2,7 @@
 
 This repository shows how you can write C++ programs that work with the the
 Python-based [Nengo](https://www.nengo.ai/) neural simulator created at the University of Waterloo 
-Center for Theoretical Neuroscience.  My
+[Center for Theoretical Neuroscience](https://uwaterloo.ca/centre-for-theoretical-neuroscience/).  My
 motivation for doing this is to call Nengo routines from the C++-based 
 [Unreal Engine 4](https://www.unrealengine.com/en-US/what-is-unreal-engine-4) game-development platform; however
 the example provided here shows a general way to can make C++ programs run
