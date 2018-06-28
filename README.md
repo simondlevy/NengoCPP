@@ -16,9 +16,14 @@ Python code directly, without communication over a socket, remote procedure call
 
 # Command-line example
 
+The first example is a simple command-line program that allows you to specify a one-dimensional (scalar) target value.
+Starting with an actual value of zero, the program runs the PID controller on the target and actual values, 
+adding the resulting correction to the actual value, and halting when the actual value comes within one percent of the 
+target value.
+
 # Mouse-tracker example
 
-Our second example program is a simple two-dimensional position-tracking task (&ldquo;mousetracker&rdquo;) using 
+The second example program is a simple two-dimensional position-tracking task (&ldquo;mousetracker&rdquo;) using 
 [PID control](https://en.wikipedia.org/wiki/PID_controller).  You use the mouse to move little green square
 around, and the PID controller adjusts the position of a little red circle so that it follows the square.
 We wrote this example using [OpenCV](https://opencv.org/about.html), because of how easy it is to do these sorts
