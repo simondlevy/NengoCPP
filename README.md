@@ -1,6 +1,6 @@
 # About
 
-This repository shows how you can write C++ programs that work with the the
+This repository shows how you can write C++ programs that work with the
 Python-based [Nengo](https://www.nengo.ai/) neural simulator created at the University of Waterloo 
 [Center for Theoretical Neuroscience](https://uwaterloo.ca/centre-for-theoretical-neuroscience/).  My
 motivation for doing this is to call Nengo routines from the C++-based 
@@ -49,7 +49,7 @@ and [implementation](https://github.com/simondlevy/NengoCPP/blob/master/nengo_pi
 
 5. Write a C++ [example](https://github.com/simondlevy/NengoCPP/blob/master/mousetracker.cpp) to test your C++ class.
 
-# Acknwoledgements
+# Acknowledgements
 
 Thanks to [Terry Stewart](http://compneuro.uwaterloo.ca/people/terrence-c-stewart.html) for help with the PID control
 code, and to Chris Eliasmith and the organizers of Nengo Summer School 2018 for introducing us to Nengo.
