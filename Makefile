@@ -16,7 +16,7 @@
 #You should have received a copy of the GNU Lesser General Public License 
 #along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 
-all: mousetracker
+all: commandline mousetracker
 
 PYVER = 3.5
 
@@ -45,14 +45,15 @@ mousetracker: mousetracker.o nengo_pidcontrol.o
 mousetracker.o: mousetracker.cpp nengo_pidcontrol.h
 	g++ $(CFLAGS) -c -I $(PYINC) $(OPENCV_COMPILE) mousetracker.cpp 
 
-nengo_pidcontrol.o: nengo_pidcontrol.cpp nengo_pidcontrol.h
+commandline: commandline.o nengo_pidcontrol.o
+	g++ -o commandline commandline.o nengo_pidcontrol.o \
+		-L$(PYTHON_LIBDIR) -lpython$(PYVER)
+
+commandline.o: commandline.cpp nengo_pidcontrol.h
+	g++ $(CFLAGS) -c -I $(PYINC) commandline.cpp 
+
+nnengo_pidcontrol.o: nengo_pidcontrol.cpp nengo_pidcontrol.h
 	g++ $(CFLAGS) -c -I $(PYINC) nengo_pidcontrol.cpp 
-
-run: mousetracker
-	./mousetracker
-
-mouse: mousetracker
-	./mousetracker
 
 clean:
 	rm -rf mousetracker *.o *~ __pycache__ *.pyc
