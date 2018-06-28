@@ -31,4 +31,9 @@ helpful to understand how we developed our code:
 
 1. Use the [Nengo GUI](https://github.com/nengo/nengo-gui) to prototype your neural model interactively.
 
-2. Package up your Nengo model into a Python class.  
+2. Package up your Nengo model into a Python class.  In our 
+[PIDController](https://github.com/simondlevy/NengoCPP/blob/master/nengo_pidcontrol.py) class, we 
+set up the constructor method with a boolean flag 
+[in\_gui](https://github.com/simondlevy/NengoCPP/blob/master/nengo_pidcontrol.py#L83-L86) 
+(default = False), which allows us to continue to visualize the model via a simple 
+[script](https://github.com/simondlevy/NengoCPP/blob/master/gui_demo.py): <tt>nengo gui\_demo.py</tt>
