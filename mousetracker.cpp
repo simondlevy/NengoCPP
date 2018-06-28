@@ -23,10 +23,7 @@ along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 #include <opencv2/highgui/highgui.hpp>
 using namespace cv;
 
-#include <iostream>
-using namespace std;
-
-// Params
+// Params to play with
 static const float Kp = 1.0;
 static const float Kd = 1.0;
 static const float sim_time = 0.001;
