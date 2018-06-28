@@ -24,6 +24,7 @@ static const float Kd = 1.0;
 static const float sim_time = 0.001;
 
 #include "nengo_pidcontrol.h"
+#include <stdio.h>
 
 int main(int argc, char ** argv)
 {    
@@ -31,6 +32,9 @@ int main(int argc, char ** argv)
 
     while (true) {
 
+	printf("Enter a target value (or non-number to quit) > ");
+	float target = 0;
+	if (scanf("%f", &target) < 1) break;
     }
 
     return 0;

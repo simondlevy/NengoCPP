@@ -3,5 +3,5 @@ __pycache__
 *.pyc
 *.swp
 *.o
-call_nengo
 mousetracker
+commandline
