@@ -48,3 +48,8 @@ and [implementation](https://github.com/simondlevy/NengoCPP/blob/master/nengo_pi
 ), each of whose methods corresponds to a method in your Python class.
 
 5. Write a C++ [example](https://github.com/simondlevy/NengoCPP/blob/master/mousetracker.cpp) to test your C++ class.
+
+# Acknwoledgements
+
+Thanks to [Terry Stewart](http://compneuro.uwaterloo.ca/people/terrence-c-stewart.html) for help with the PID control
+code, and to Chris Eliasmith and the organizers of Nengo Summer School 2018 for introducing us to Nengo.
