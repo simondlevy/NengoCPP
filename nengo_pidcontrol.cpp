@@ -21,40 +21,8 @@ along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 #include "nengo_pidcontrol.h"
 
 NengoPIDController::NengoPIDController(float Kp, float Kd, float Ki, int n_dims, float sim_time,
-                int n_neurons, float integral_synapse, float integral_radius)
+                int n_neurons, float integral_synapse, float integral_radius) : PythonClass("nengo_pidcontrol", "PIDController")
 {
-    const char * moduleName = "nengo_pidcontrol";
-    const char * className  = "PIDController";
-
-    // Initialize Python access
-    Py_Initialize();
-
-    // Make sure we can access Python modules in the current directory
-    PyRun_SimpleString("import sys");
-    PyRun_SimpleString("sys.path.append(\".\")");
-
-    // Build the name object
-    PyObject * pName = PyUnicode_FromString(moduleName);
-
-    // Load the module object
-    PyObject * pModule = PyImport_Import(pName);
-    if (pModule == NULL) {
-        fprintf(stderr, "Error loading module %s\n", moduleName);
-        exit(1);
-    }
-
-    // pDict is a borrowed reference 
-    PyObject * pDict = PyModule_GetDict(pModule);
-
-    // Build the name of a callable class 
-    PyObject * pClass = PyDict_GetItemString(pDict, className);
-
-    // Ensure class is callable
-    if (!PyCallable_Check(pClass)) {
-        fprintf(stderr, "%s is not a callable class\n", className);
-        exit(1);
-    }
-
     //setup args for constructor
     PyObject * pArgs = PyTuple_New(8);
     PyTuple_SetItem(pArgs, 0, PyFloat_FromDouble(Kp));
@@ -66,7 +34,7 @@ NengoPIDController::NengoPIDController(float Kp, float Kd, float Ki, int n_dims,
     PyTuple_SetItem(pArgs, 6, PyFloat_FromDouble(integral_synapse));
     PyTuple_SetItem(pArgs, 7, PyFloat_FromDouble(integral_radius));
 
-    _pInstance = PyObject_CallObject(pClass, pArgs); 
+    _pInstance = PyObject_CallObject(_pClass, pArgs); 
 
     // Create tuples to hold target, actual
     _pTarget =  PyTuple_New(n_dims);

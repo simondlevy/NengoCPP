@@ -26,5 +26,6 @@ class PythonClass {
 
         PythonClass(const char * moduleName, const char * className);
 
+        PyObject * _pClass;
         PyObject * _pInstance;
 };

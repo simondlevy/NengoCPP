@@ -21,7 +21,7 @@ along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 #include <Python.h>
 #include "python_class.h"
 
-class NengoPIDController {
+class NengoPIDController : public PythonClass {
 
     public:
 

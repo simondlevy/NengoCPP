@@ -43,10 +43,10 @@ PythonClass::PythonClass(const char * moduleName, const char * className)
     PyObject * pDict = PyModule_GetDict(pModule);
 
     // Build the name of a callable class 
-    PyObject * pClass = PyDict_GetItemString(pDict, className);
+    _pClass = PyDict_GetItemString(pDict, className);
 
     // Ensure class is callable
-    if (!PyCallable_Check(pClass)) {
+    if (!PyCallable_Check(_pClass)) {
         fprintf(stderr, "%s is not a callable class\n", className);
         exit(1);
     }
