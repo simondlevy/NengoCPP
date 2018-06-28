@@ -35,5 +35,6 @@ helpful to understand how we developed our code:
 [PIDController](https://github.com/simondlevy/NengoCPP/blob/master/nengo_pidcontrol.py) class, we 
 set up the constructor method with a boolean flag 
 [in\_gui](https://github.com/simondlevy/NengoCPP/blob/master/nengo_pidcontrol.py#L83-L86) 
-(default = False), which allows us to continue to visualize the model via a simple 
-[script](https://github.com/simondlevy/NengoCPP/blob/master/gui_demo.py): <tt>nengo gui\_demo.py</tt>
+(default = False), which allows us to continue to visualize the model by running a simple 
+[script](https://github.com/simondlevy/NengoCPP/blob/master/gui_demo.py) from the command-line:
+<tt>nengo gui\_demo.py</tt>
