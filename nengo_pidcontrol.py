@@ -4,9 +4,9 @@ Nengo PID control
 
 Copyright 2018 Terry Stewart, Simon D. Levy, Melanie Jouaiti
 
-This file is part of HackflightNengo.
+This file is part of NengoCPlusPlus.
 
-HackflightNengo is free software: you can redistribute it and/or modify
+NengoCPlusPlus is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as 
 published by the Free Software Foundation, either version 3 of the 
 License, or (at your option) any later version.
