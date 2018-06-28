@@ -23,7 +23,7 @@ along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 NengoPIDController::NengoPIDController(float Kp, float Kd, float Ki, int n_dims, float sim_time,
                 int n_neurons, float integral_synapse, float integral_radius) : PythonClass("nengo_pidcontrol", "PIDController")
 {
-    //setup args for constructor
+    // Setup args for constructor
     PyObject * pArgs = PyTuple_New(8);
     PyTuple_SetItem(pArgs, 0, PyFloat_FromDouble(Kp));
     PyTuple_SetItem(pArgs, 1, PyFloat_FromDouble(Kd));
@@ -34,6 +34,7 @@ NengoPIDController::NengoPIDController(float Kp, float Kd, float Ki, int n_dims,
     PyTuple_SetItem(pArgs, 6, PyFloat_FromDouble(integral_synapse));
     PyTuple_SetItem(pArgs, 7, PyFloat_FromDouble(integral_radius));
 
+    // Create class instance with args
     _pInstance = PyObject_CallObject(_pClass, pArgs); 
 
     // Create tuples to hold target, actual
@@ -46,13 +47,16 @@ NengoPIDController::NengoPIDController(float Kp, float Kd, float Ki, int n_dims,
 
 void NengoPIDController::getCorrection(float target[], float actual[], float correction[])
 {
+        // Build tuples for Python method args
 	for (int k=0; k<_n_dims; ++k) {
 		PyTuple_SetItem(_pTarget, k, PyFloat_FromDouble(target[k]));    
 		PyTuple_SetItem(_pActual, k, PyFloat_FromDouble(actual[k]));    
 	}
 
+        // Call the Python method with the arg tuples, getting the resultant correction
 	PyObject * pCorrection = PyObject_CallMethod(_pInstance, "getCorrection", "(OO)", _pTarget, _pActual);
 
+        // Copy the resultant correction tuple back out to the result array
 	for (int k=0; k<_n_dims; ++k) {
 		correction[k] = PyFloat_AsDouble(PyTuple_GetItem(pCorrection, k));
 	}
