@@ -49,27 +49,24 @@ NengoPIDController::NengoPIDController(float Kp, float Kd, float Ki, int n_dims,
     // Build the name of a callable class 
     PyObject * pClass = PyDict_GetItemString(pDict, className);
 
-    // Create an instance of the class
-    _pInstance = NULL;
-    if (PyCallable_Check(pClass)) {
-
-        //setup args for constructor
-        PyObject * pArgs = PyTuple_New(8);
-        PyTuple_SetItem(pArgs, 0, PyFloat_FromDouble(Kp));
-        PyTuple_SetItem(pArgs, 1, PyFloat_FromDouble(Kd));
-        PyTuple_SetItem(pArgs, 2, PyFloat_FromDouble(Kd));
-        PyTuple_SetItem(pArgs, 3, PyLong_FromLong(n_dims));
-        PyTuple_SetItem(pArgs, 4, PyFloat_FromDouble(sim_time));
-        PyTuple_SetItem(pArgs, 5, PyLong_FromLong(n_neurons));
-        PyTuple_SetItem(pArgs, 6, PyFloat_FromDouble(integral_synapse));
-        PyTuple_SetItem(pArgs, 7, PyFloat_FromDouble(integral_radius));
-
-        _pInstance = PyObject_CallObject(pClass, pArgs); 
-    }
-    else {
+    // Ensure class is callable
+    if (!PyCallable_Check(pClass)) {
         fprintf(stderr, "%s is not a callable class\n", className);
         exit(1);
     }
+
+    //setup args for constructor
+    PyObject * pArgs = PyTuple_New(8);
+    PyTuple_SetItem(pArgs, 0, PyFloat_FromDouble(Kp));
+    PyTuple_SetItem(pArgs, 1, PyFloat_FromDouble(Kd));
+    PyTuple_SetItem(pArgs, 2, PyFloat_FromDouble(Kd));
+    PyTuple_SetItem(pArgs, 3, PyLong_FromLong(n_dims));
+    PyTuple_SetItem(pArgs, 4, PyFloat_FromDouble(sim_time));
+    PyTuple_SetItem(pArgs, 5, PyLong_FromLong(n_neurons));
+    PyTuple_SetItem(pArgs, 6, PyFloat_FromDouble(integral_synapse));
+    PyTuple_SetItem(pArgs, 7, PyFloat_FromDouble(integral_radius));
+
+    _pInstance = PyObject_CallObject(pClass, pArgs); 
 
     // Create tuples to hold target, actual
     _pTarget =  PyTuple_New(n_dims);
@@ -81,14 +78,14 @@ NengoPIDController::NengoPIDController(float Kp, float Kd, float Ki, int n_dims,
 
 void NengoPIDController::getCorrection(float target[], float actual[], float correction[])
 {
-    for (int k=0; k<_n_dims; ++k) {
-        PyTuple_SetItem(_pTarget, k, PyFloat_FromDouble(target[k]));    
-        PyTuple_SetItem(_pActual, k, PyFloat_FromDouble(actual[k]));    
-    }
+	for (int k=0; k<_n_dims; ++k) {
+		PyTuple_SetItem(_pTarget, k, PyFloat_FromDouble(target[k]));    
+		PyTuple_SetItem(_pActual, k, PyFloat_FromDouble(actual[k]));    
+	}
 
-    PyObject * pCorrection = PyObject_CallMethod(_pInstance, "getCorrection", "(OO)", _pTarget, _pActual);
+	PyObject * pCorrection = PyObject_CallMethod(_pInstance, "getCorrection", "(OO)", _pTarget, _pActual);
 
-    for (int k=0; k<_n_dims; ++k) {
-        correction[k] = PyFloat_AsDouble(PyTuple_GetItem(pCorrection, k));
-    }
+	for (int k=0; k<_n_dims; ++k) {
+		correction[k] = PyFloat_AsDouble(PyTuple_GetItem(pCorrection, k));
+	}
 }
