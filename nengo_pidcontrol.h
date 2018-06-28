@@ -36,5 +36,4 @@ class NengoPIDController {
         PyObject * _pActual;
 
         int _n_dims;
-        float _sim_time;
 };
