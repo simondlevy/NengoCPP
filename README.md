@@ -23,7 +23,9 @@ Python code directly, without communication over a socket, remote procedure call
 The first example is a simple command-line program that allows you to specify a one-dimensional (scalar) target value.
 Starting with an actual value of zero, the program runs the PID controller on the target and actual values, 
 adding the resulting correction to the actual value, and halting when the actual value comes within one percent of the 
-target value.
+target value.  On Linux (and Mac OS, assuming you've installed the 
+[command-line tools](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)), you can build this example in a terminal 
+window by typing <tt>make commandline</tt>, and run it by typing <tt>./commandline</tt>.
 
 # Mouse-tracker example
 
@@ -31,7 +33,8 @@ The second example program is a simple two-dimensional position-tracking task (&
 [PID control](https://en.wikipedia.org/wiki/PID_controller).  You use the mouse to move little green square
 around, and the PID controller adjusts the position of a little red circle so that it follows the square.
 We wrote this example using [OpenCV](https://opencv.org/about.html), because of how easy it is to do these sorts
-of animations.  So if you want to try this example, you'll need to install OpenCV as well.
+of animations.  So if you want to try this example, you'll need to install OpenCV as well.  The make/run procedure is the
+same as for the command-line example.
 
 # Writing your own applications
 
