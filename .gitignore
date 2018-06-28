@@ -1,0 +1,7 @@
+__pycache__
+*.cfg
+*.pyc
+*.swp
+*.o
+call_nengo
+mousetracker
