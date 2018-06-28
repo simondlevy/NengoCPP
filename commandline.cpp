@@ -22,6 +22,7 @@ along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 static const float Kp = 1.0;
 static const float Kd = 1.0;
 static const float sim_time = 0.001;
+static const float n_iter = 20;
 
 #include "nengo_pidcontrol.h"
 #include <stdio.h>
@@ -30,13 +31,20 @@ int main(int argc, char ** argv)
 {    
     NengoPIDController controller = NengoPIDController(Kp, Kd, 0, 1, sim_time); // Ki=0, n_dims = 2
 
+    float actual = 0;
+
     while (true) {
 
 	printf("Enter a target value (or non-number to quit) > ");
 	float target = 0;
 	if (scanf("%f", &target) < 1) break;
 
-		
+	float correction = 0;
+	for (int k=0; k<n_iter; ++k) {
+            controller.getCorrection(&target, &actual, &correction);
+            actual += correction;
+            printf("Target = %f    Actual = %f    Correction = %f\n", target, actual, correction);
+	}		
     }
 
     return 0;
