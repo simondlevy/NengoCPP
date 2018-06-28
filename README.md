@@ -5,7 +5,7 @@ Python-based [Nengo](https://www.nengo.ai/) neural simulator created at the Univ
 [Center for Theoretical Neuroscience](https://uwaterloo.ca/centre-for-theoretical-neuroscience/).  My
 motivation for doing this is to call Nengo routines from the C++-based 
 [Unreal Engine 4](https://www.unrealengine.com/en-US/what-is-unreal-engine-4) game-development platform; however
-the example provided here shows a general way to can make C++ programs run
+the example provided here shows a general way to make C++ programs run
 Python code directly, without communication over a socket, remote procedure calls, and the like.
 
 # Requirements
@@ -13,6 +13,10 @@ Python code directly, without communication over a socket, remote procedure call
 * [Python](https://www.python.org/downloads/) We're using Python3.6
 
 * [Nengo](https://www.nengo.ai/download.html)
+
+* The Python3 development environment.  This is OS-dependent.  On OS X, this package is included when you use 
+[brew](https://brew.sh) to install Python.  On Ubuntu, I installed it using <tt>sudo apt install python3.6-dev</tt>.
+(Windows instructions coming shortly!)
 
 # Command-line example
 
