@@ -46,3 +46,5 @@ to test your Python class.
 [API](https://github.com/simondlevy/NengoCPP/blob/master/nengo_pidcontrol.h)
 and [implementation](https://github.com/simondlevy/NengoCPP/blob/master/nengo_pidcontrol.cpp)
 ), each of whose methods corresponds to a method in your Python class.
+
+5. Write a C++ [example](https://github.com/simondlevy/NengoCPP/blob/master/mousetracker.cpp) to test your C++ class.
