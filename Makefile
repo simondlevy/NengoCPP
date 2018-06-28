@@ -18,23 +18,29 @@
 
 all: mousetracker
 
+PYVER = 3.5
+
 CFLAGS = -Wall -std=c++11
 
-# Linux
-#PYINC = /usr/include/python3.5m
-#PYTHON_LIBDIR:=$(shell python -c 'from distutils import sysconfig; print sysconfig.get_config_var("LIBDIR")')
+UNAME := $(shell uname)
 
-# Mac OS
-PYDIR = /Library/Frameworks/Python.framework/Versions/3.6
-PYINC = $(PYDIR)/include/python3.6m
-PYTHON_LIBDIR = $(PYDIR)/lib
+ifeq ($(UNAME), Linux)
+  PYINC = /usr/include/python$(PYVER)
+  PYTHON_LIBDIR:=/usr/lib/python$(PYVER)/config-$(PYVER)m-x86_64-linux-gnu/
+endif
+
+ifeq ($(UNAME), Darwin)
+  PYDIR = /Library/Frameworks/Python.framework/Versions/$(PYVER)
+  PYINC = $(PYDIR)/include/python$(PYVER)
+  PYTHON_LIBDIR = $(PYDIR)/lib
+endif
 
 OPENCV_COMPILE = `pkg-config --cflags opencv`
 OPENCV_LINK = `pkg-config opencv --libs`
 
 mousetracker: mousetracker.o nengo_pidcontrol.o
 	g++ -o mousetracker mousetracker.o nengo_pidcontrol.o \
-		-L$(PYTHON_LIBDIR) $(OPENCV_LINK) -lpython3.6m
+		-L$(PYTHON_LIBDIR) $(OPENCV_LINK) -lpython$(PYVER)
 
 mousetracker.o: mousetracker.cpp nengo_pidcontrol.h
 	g++ $(CFLAGS) -c -I $(PYINC) $(OPENCV_COMPILE) mousetracker.cpp 

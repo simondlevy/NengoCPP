@@ -29,6 +29,10 @@ NengoPIDController::NengoPIDController(float Kp, float Kd, float Ki, int n_dims,
     // Initialize Python access
     Py_Initialize();
 
+    // Make sure we can access Python modules in the current directory
+    PyRun_SimpleString("import sys");
+    PyRun_SimpleString("sys.path.append(\".\")");
+
     // Build the name object
     PyObject * pName = PyUnicode_FromString(moduleName);
 
