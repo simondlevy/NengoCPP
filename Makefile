@@ -38,15 +38,15 @@ endif
 OPENCV_COMPILE = `pkg-config --cflags opencv`
 OPENCV_LINK = `pkg-config opencv --libs`
 
-mousetracker: mousetracker.o nengo_pidcontrol.o
-	g++ -o mousetracker mousetracker.o nengo_pidcontrol.o \
+mousetracker: mousetracker.o nengo_pidcontrol.o python_class.o
+	g++ -o mousetracker mousetracker.o nengo_pidcontrol.o  python_class.o \
 		-L$(PYTHON_LIBDIR) $(OPENCV_LINK) -lpython$(PYVER)
 
 mousetracker.o: mousetracker.cpp nengo_pidcontrol.h
 	g++ $(CFLAGS) -c -I $(PYINC) $(OPENCV_COMPILE) mousetracker.cpp 
 
-commandline: commandline.o nengo_pidcontrol.o
-	g++ -o commandline commandline.o nengo_pidcontrol.o \
+commandline: commandline.o nengo_pidcontrol.o python_class.o
+	g++ -o commandline commandline.o nengo_pidcontrol.o python_class.o \
 		-L$(PYTHON_LIBDIR) -lpython$(PYVER)
 
 commandline.o: commandline.cpp nengo_pidcontrol.h
@@ -54,6 +54,9 @@ commandline.o: commandline.cpp nengo_pidcontrol.h
 
 nengo_pidcontrol.o: nengo_pidcontrol.cpp nengo_pidcontrol.h
 	g++ $(CFLAGS) -c -I $(PYINC) nengo_pidcontrol.cpp 
+
+python_class.o: python_class.cpp python_class.h
+	g++ $(CFLAGS) -c -I $(PYINC) python_class.cpp 
 
 clean:
 	rm -rf mousetracker *.o *~ __pycache__ *.pyc
