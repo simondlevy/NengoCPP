@@ -16,9 +16,9 @@
 #You should have received a copy of the GNU Lesser General Public License 
 #along with this code.  If not, see <http:#www.gnu.org/licenses/>.
 
-all: commandline mousetracker
+all: mousetracker
 
-PYVER = 3.5
+PYVER = 3.6
 
 CFLAGS = -Wall -std=c++11
 
@@ -31,7 +31,7 @@ endif
 
 ifeq ($(UNAME), Darwin)
   PYDIR = /Library/Frameworks/Python.framework/Versions/$(PYVER)
-  PYINC = $(PYDIR)/include/python$(PYVER)
+  PYINC = $(PYDIR)/include/python$(PYVER)m
   PYTHON_LIBDIR = $(PYDIR)/lib
 endif
 
@@ -52,7 +52,7 @@ commandline: commandline.o nengo_pidcontrol.o
 commandline.o: commandline.cpp nengo_pidcontrol.h
 	g++ $(CFLAGS) -c -I $(PYINC) commandline.cpp 
 
-nnengo_pidcontrol.o: nengo_pidcontrol.cpp nengo_pidcontrol.h
+nengo_pidcontrol.o: nengo_pidcontrol.cpp nengo_pidcontrol.h
 	g++ $(CFLAGS) -c -I $(PYINC) nengo_pidcontrol.cpp 
 
 clean:
