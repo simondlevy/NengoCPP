@@ -9,8 +9,8 @@ cpp/commandline
 cpp/windows/*/.vs/
 cpp/windows/*/Debug/
 cpp/windows/*/Release/
+cpp/windows/*/*/x64/
 cpp/windows/*/x64/
-cpp/windows/*/
 
 
 

@@ -32,7 +32,11 @@ void mouse_callback(int  event, int  x, int  y, int  flag, void *param)
     }
 }
 
+#ifdef _WIN32
+int WinMain(int argc, char ** argv)
+#else
 int main(int argc, char ** argv)
+#endif
 {    
     NengoPIDController controller = NengoPIDController(Kp, Kd, 0, 2, sim_time); // Ki=0, n_dims = 2
     namedWindow("pdcontrol");
