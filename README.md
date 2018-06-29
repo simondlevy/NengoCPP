@@ -1,4 +1,4 @@
-# About
+## About
 
 This repository shows how you can write C++ programs that work with the
 Python-based [Nengo](https://www.nengo.ai/) neural simulator created at the University of Waterloo 
@@ -8,7 +8,7 @@ motivation for doing this is to call Nengo routines from the C++-based
 the example provided here shows a general way to make C++ programs run
 Python code directly, without communication over a socket, remote procedure calls, and the like.
 
-# Requirements
+## Requirements
 
 * [Python](https://www.python.org/downloads/) We're using Python3.6
 
@@ -18,7 +18,7 @@ Python code directly, without communication over a socket, remote procedure call
 [brew](https://brew.sh) to install Python.  On Ubuntu, I installed it using <tt>sudo apt install python3.6-dev</tt>.
 (Windows instructions coming shortly!)
 
-# Command-line example
+## Command-line example
 
 The first example is a simple command-line program that allows you to specify a one-dimensional (scalar) target value.
 Starting with an actual value of zero, the program runs the PID controller on the target and actual values, 
@@ -27,7 +27,7 @@ target value.  On Linux (and Mac OS, assuming you've installed the
 [command-line tools](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)), you can build this example in a terminal 
 window by typing <tt>make commandline</tt>, and run it by typing <tt>./commandline</tt>.
 
-# Mouse-tracker example
+## Mouse-tracker example
 
 The second example program is a simple two-dimensional position-tracking task (&ldquo;mousetracker&rdquo;) using 
 [PID control](https://en.wikipedia.org/wiki/PID_controller).  You use the mouse to move little green square
@@ -36,7 +36,7 @@ We wrote this example using [OpenCV](https://opencv.org/about.html), because of 
 of animations.  So if you want to try this example, you'll need to install OpenCV as well.  The make/run procedure is the
 same as for the command-line example.
 
-# Writing your own applications
+## Writing your own applications
 
 To use our PID-control example as the basis for developing your own C++/Nengo projects, it will be
 helpful to understand how we developed our code:
@@ -65,7 +65,7 @@ Although Nengo is built on the NumPy package and uses NumPy arrays as its common
 API uses standard Python tuples, instead of NumPy arrays, to pass parameters and return results.  This approach
 simplifies the work required by the C++ code for interacting with Python.
 
-# Acknowledgements
+## Acknowledgements
 
 Thanks to [Terry Stewart](http://compneuro.uwaterloo.ca/people/terrence-c-stewart.html) for help with the PID control
 code, and to Chris Eliasmith and the organizers of Nengo Summer School 2018 for introducing us to Nengo.
