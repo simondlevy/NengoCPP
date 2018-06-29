@@ -62,7 +62,7 @@ how easy OpenCV makes it to do these sorts of animations.  So if you want to
 try this example, you'll need to install OpenCV as well.  The make/run
 procedure is the same as for the command-line example, except that on Windows
 the first thing you should do is open the folder
-<bThirdParty\OpenCV\Libraries\Win64</b>, copy the file
+<b>ThirdParty\OpenCV\Libraries\Win64</b>, copy the file
 <b>opencv_world340.dll</b>, and paste it into the <b>C:\Windows\System32</b>
 folder.  This will also help with any future programs you write using OpenCV.
 
