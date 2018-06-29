@@ -25,7 +25,7 @@ Starting with an actual value of zero, the program runs the PID controller on th
 adding the resulting correction to the actual value, and halting when the actual value comes within one percent of the 
 target value.  
 
-Before running this program in C++, you should first test the code in Python:
+Before running this program in C++, you should first test the code in the <b>python</b> folder:
 
 <pre>
   python3 commandline.py
@@ -40,7 +40,7 @@ accessed from anywhere on your file system:
 
 To build the command-line example on Linux (and Mac OS, assuming you've installed the 
 [command-line tools](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)), you can 
-type
+run the following in the <b>cpp</b> folder:
 <pre>
   make commandline
 </pre>
