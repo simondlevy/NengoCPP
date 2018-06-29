@@ -49,6 +49,9 @@ and run it by typing
   ./commandline
 </pre>
 
+On Windows, you can double-click the <b>CommandLine.sln</b> icon in <b>cpp/windows/CommandLine</b> to launch 
+VisualStudio and run the program.
+
 ## Mouse-tracker example
 
 The second example program is a simple two-dimensional position-tracking task (&ldquo;mousetracker&rdquo;) using 
