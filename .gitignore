@@ -4,5 +4,5 @@ __pycache__
 *.pyc
 *.swp
 *.o
-mousetracker
-commandline
+cpp/mousetracker
+cpp/commandline
