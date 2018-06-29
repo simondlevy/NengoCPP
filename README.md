@@ -43,7 +43,7 @@ To build the command-line example on Linux (and Mac OS, assuming you've installe
 type
 <pre>
   make commandline
-<pre>
+</pre>
 and run it by typing
 <pre>
   ./commandline
