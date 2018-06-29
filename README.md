@@ -16,16 +16,38 @@ Python code directly, without communication over a socket, remote procedure call
 
 * The Python3 development environment.  This is OS-dependent.  On OS X, this package is included when you use 
 [brew](https://brew.sh) to install Python.  On Ubuntu, I installed it using <tt>sudo apt install python3.6-dev</tt>.
-(Windows instructions coming shortly!)
+
 
 ## Command-line example
 
 The first example is a simple command-line program that allows you to specify a one-dimensional (scalar) target value.
 Starting with an actual value of zero, the program runs the PID controller on the target and actual values, 
 adding the resulting correction to the actual value, and halting when the actual value comes within one percent of the 
-target value.  On Linux (and Mac OS, assuming you've installed the 
-[command-line tools](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)), you can build this example in a terminal 
-window by typing <tt>make commandline</tt>, and run it by typing <tt>./commandline</tt>.
+target value.  
+
+Before running this program in C++, you should first test the code in Python:
+
+<pre>
+  python3 commandline.py
+</pre>
+
+Once the example is running, you'll want to install the <b>nengo_pidcontrol.py</b> module so that it can be
+accessed from anywhere on your file system:
+
+<pre>
+  sudo python3 setup.py install
+</pre>
+
+To build the command-line example on Linux (and Mac OS, assuming you've installed the 
+[command-line tools](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)), you can 
+type
+<pre>
+  make commandline
+<pre>
+and run it by typing
+<pre>
+  ./commandline
+</pre>
 
 ## Mouse-tracker example
 

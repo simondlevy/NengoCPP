@@ -13,7 +13,9 @@ static const float sim_time = 0.001;
 static const float tolerance = 0.01;
 
 #include "nengo_pidcontrol.h"
+
 #include <stdio.h>
+#include <math.h>
 
 int main(int argc, char ** argv)
 {    
@@ -32,7 +34,7 @@ int main(int argc, char ** argv)
             controller.getCorrection(&target, &actual, &correction);
             actual += correction;
             printf("Target = %+6.3f    Actual = %+6.3f    Correction = %+6.3f\n", target, actual, correction);
-            if (abs(target-actual)/abs(target) < tolerance) break;
+            if (fabs(target-actual)/fabs(target) < tolerance) break;
 	}		
     }
 

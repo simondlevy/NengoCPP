@@ -24,7 +24,7 @@ PythonClass::PythonClass(const char * moduleName, const char * className)
     PyObject * pModule = PyImport_Import(pName);
     if (pModule == NULL) {
         fprintf(stderr, "Error loading module %s\n", moduleName);
-        exit(1);
+		while (true);
     }
 
     // pDict is a borrowed reference 
@@ -36,6 +36,6 @@ PythonClass::PythonClass(const char * moduleName, const char * className)
     // Ensure class is callable
     if (!PyCallable_Check(_pClass)) {
         fprintf(stderr, "%s is not a callable class\n", className);
-        exit(1);
+		while (true);
     }
 }
