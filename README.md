@@ -49,7 +49,7 @@ and run it by typing
   ./commandline
 </pre>
 
-On Windows, you can double-click the <b>CommandLine.sln</b> icon in <b>cpp/windows/CommandLine</b> to launch 
+On Windows, you can double-click the <b>CommandLine.sln</b> icon in <b>cpp\windows\CommandLine</b> to launch 
 VisualStudio and run the program.
 
 ## Mouse-tracker example
@@ -58,8 +58,13 @@ The second example program is a simple two-dimensional position-tracking task (&
 [PID control](https://en.wikipedia.org/wiki/PID_controller).  You use the mouse to move little green square
 around, and the PID controller adjusts the position of a little red circle so that it follows the square.
 We wrote this example using [OpenCV](https://opencv.org/about.html), because of how easy it is to do these sorts
-of animations.  So if you want to try this example, you'll need to install OpenCV as well.  The make/run procedure is the
-same as for the command-line example.
+of animations.  So if you want to try this example, you'll need to install
+OpenCV as well.  The make/run procedure is the same as for the command-line
+example, except that on Windows the first thing you should do is open the
+folder <bThirdParty\OpenCV\Libraries\Win64</b>, copy the file
+<b>opencv_world340.dll</b>, and paste it into the <b>C:\Windows\System32</b>
+folder.  This will also help with any future programs you write using OpenCV.
+
 
 ## Writing your own applications
 
