@@ -61,6 +61,10 @@ and [implementation](https://github.com/simondlevy/NengoCPP/blob/master/nengo_pi
 
 5. Write a C++ [example](https://github.com/simondlevy/NengoCPP/blob/master/mousetracker.cpp) to test your C++ class.
 
+Although Nengo is built on the NumPy package and uses NumPy arrays as its common data structure, out PIDController class
+API uses standard Python tuples, instead of NumPy arrays, to pass parameters and return results.  This approach
+simplifies the work required by the C++ code for interacting with Python.
+
 # Acknowledgements
 
 Thanks to [Terry Stewart](http://compneuro.uwaterloo.ca/people/terrence-c-stewart.html) for help with the PID control
