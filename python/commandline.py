@@ -21,7 +21,10 @@ actual = 0
 
 while True:
 
-    target = float(input('Enter a target value (or non-number to quit) > '))
+    try:
+        target = float(input('Enter a target value (or non-number to quit) > ')) 
+    except:
+        break
 
     correction = 0
 
